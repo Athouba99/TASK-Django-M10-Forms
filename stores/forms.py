@@ -1,13 +1,14 @@
 
+from dataclasses import fields
 from django import forms
 from .models import StoreItem   
 
 
-class StoreItemForm(forms.Model):
+class StoreItemForm(forms.ModelForm):
     class Meta:
         model = StoreItem # the model name should be the same name as the imported model
-        fileds = ["name", "desscription", "price"]
-         
+        fields = ["name", "desscription", "price"]
+
 
 
     
