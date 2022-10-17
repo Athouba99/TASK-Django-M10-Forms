@@ -1,7 +1,9 @@
+from ast import Store
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 
 from stores import models
+from stores.forms import StoreItemForm
 
 
 def get_store_items(request: HttpRequest) -> HttpResponse:
@@ -10,3 +12,10 @@ def get_store_items(request: HttpRequest) -> HttpResponse:
         "store_items": store_items,
     }
     return render(request, "store_item_list.html", context)
+
+def create_store_item(request): # creating 
+    form = StoreItemForm.object () # instance 
+    context = {
+        "form": form
+    }  
+    return render (request, "create_page.html",context)
