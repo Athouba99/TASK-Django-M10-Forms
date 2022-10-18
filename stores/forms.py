@@ -7,7 +7,7 @@ from .models import StoreItem
 class StoreItemForm(forms.ModelForm):
     class Meta:
         model = StoreItem # the model name should be the same name as the imported model
-        fields = ["name", "desscription", "price"]
+        fields = ["name", "description", "price"]
 
 
 
