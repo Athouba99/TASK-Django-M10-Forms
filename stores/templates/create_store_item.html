@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+    <p> Crearte Form </p>
+    {{form}}
     <!-- check step 5 in create froms -->
    <form action = "{% url 'create_store_item' %}" method="POST" > {% csrf_token %} {{form | create_store_item}} </form>
     <button type="submit">submit</button>
