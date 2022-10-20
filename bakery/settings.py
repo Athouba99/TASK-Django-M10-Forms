@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [ 
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -38,8 +38,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "stores",
-    "crispy-form", 
-]
+    "crispy_forms", ]
+    
+# Instructed by Yousef to keep this commented due to template exception error --> TemplateDoesNotExist
+# for below config setting
+# CRISPY_TEMPLATE_PACK = "bootstrap4", 
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

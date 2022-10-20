@@ -1,7 +1,3 @@
-from ast import Store
-from logging.config import valid_ident
-from multiprocessing import context
-from django.forms import Form
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 from stores import models
@@ -27,7 +23,7 @@ def create_store_item(request): # creating
             return redirect("store-item-list")  # to save the value and go to item list page
     context = {"form": form}  
    
-    return render (request, "create_store_item.html",context)
+    return render(request, "create_store_item.html",context)
 
 def update_store_item(request, item_id):
         store_item = StoreItem.objects.get(id=item_id) #fdetching id
@@ -39,7 +35,7 @@ def update_store_item(request, item_id):
                 form.save()
                 return redirect ("flight-list")
                 
-        POST = StoreItemForm(request.POST,instance=store_item)
+      
         context = {"form": form, "store":item_id} 
         return render(request, "update_store_item.html", context)
 
