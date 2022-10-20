@@ -23,6 +23,6 @@ urlpatterns = [
     path("items/", get_store_items, name="store-item-list"),
     path("stores/add/", create_store_item ,name="create-store-item"), 
     path("stores/edit/<int:item_id>/", update_store_item ,name="update-store-item"),
-    path("stores/delete/<int:item_id>",delete_store_item, name="delete-store-item")
+    path("stores/delete/<int:item_id>",delete_store_item, name="delete-store-item"),
 
 ]

@@ -5,7 +5,7 @@ from django.forms import Form
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 from stores import models
-from stores.forms import StoreItem, StoreItemForm
+from stores.forms import StoreItemForm
 from stores.models import StoreItem 
 
 def get_store_items(request: HttpRequest) -> HttpResponse:
@@ -16,20 +16,17 @@ def get_store_items(request: HttpRequest) -> HttpResponse:
     return render(request, "store_item_list.html", context)
 
 def create_store_item(request): # creating 
-    form = StoreItem() # instance of a class 
+    form = StoreItemForm() # instance of a class 
     if request.method == "POST":
         #taking data
-        _form = StoreItemForm(request.POST) # retrive data 
-
+        form = StoreItemForm(request.POST) # retrive data 
         #checking validity
-        if _form.is_valid():
-
+        if form.is_valid():
         #save
-            _form.save()
+            form.save()
             return redirect("store-item-list")  # to save the value and go to item list page
-
     context = {"form": form}  
-    POST = StoreItemForm(request.POST)
+   
     return render (request, "create_store_item.html",context)
 
 def update_store_item(request, item_id):
@@ -49,5 +46,5 @@ def update_store_item(request, item_id):
 def delete_store_item(request, item_id):
     store_item = StoreItem.objects.get(id=item_id)
     store_item.delete()
-    return redirect ("store_item")
+    return redirect ("store-item-list")
     
