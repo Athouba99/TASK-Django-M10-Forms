@@ -22,11 +22,10 @@ def create_store_item(request): # creating
             form.save()
             return redirect("store-item-list")  # to save the value and go to item list page
     context = {"form": form}  
-   
     return render(request, "create_store_item.html",context)
 
 def update_store_item(request, item_id):
-        store_item = StoreItem.objects.get(id=item_id) #fdetching id
+        store_item = StoreItem.objects.get(id=item_id) #fetching id
         form = StoreItemForm(instance=store_item) #instance
         #when the user submit it will run
         if request.method == "POST":
@@ -36,7 +35,7 @@ def update_store_item(request, item_id):
                 return redirect ("flight-list")
                 
       
-        context = {"form": form, "store":item_id} 
+        context = {"form": form, "store_item":store_item} 
         return render(request, "update_store_item.html", context)
 
 def delete_store_item(request, item_id):
