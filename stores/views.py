@@ -36,7 +36,7 @@ def update_store_item(request, item_id):
                 
       
         context = {"form": form, "store_item":store_item} 
-        return render(request, "update_store_item.html", context)
+        return render(request, 'update_store_item.html', context)
 
 def delete_store_item(request, item_id):
     store_item = StoreItem.objects.get(id=item_id)
